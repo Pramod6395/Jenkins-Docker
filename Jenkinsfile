@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Cloning our Git') {
       steps {
-        git url: 'https://github.com/Pramod6395/Jenkins-Docker.git'
+        git 'https://github.com/Pramod6395/Jenkins-Docker.git'
       }
     }
     stage('Building our image') {
