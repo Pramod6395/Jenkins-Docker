@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Cloning our Git') {
       steps {
-        git 'https://github.com/Pramod6395/Jenkins-Docker.git'
+        checkout scm
       }
     }
     stage('Building our image') {
