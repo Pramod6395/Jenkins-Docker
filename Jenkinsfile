@@ -1,5 +1,5 @@
 pipeline {
-    agent docker-agent-alpine
+    agent "docker-agent-alpine"
 
     stages {
         stage('Clone Git Repository') {
