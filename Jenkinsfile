@@ -2,7 +2,7 @@ pipeline {
 
     agent {
         docker {
-            image 'jenkins/jenkins:latest' // Replace with your Jenkins image
+            image 'jenkins/agent:latest' // Replace with your Jenkins image
             args '-v /var/run/docker.sock:/var/run/docker.sock' // Mount the Docker socket from the host
         }
     }
