@@ -1,7 +1,11 @@
 pipeline {
+
     agent {
-        label 'docker-agent-python'
-       }
+        docker {
+            image 'jenkins/jenkins:latest' // Replace with your Jenkins image
+            args '-v /var/run/docker.sock:/var/run/docker.sock' // Mount the Docker socket from the host
+        }
+    }
 
     stages {
         stage('Clone Git Repository') {
