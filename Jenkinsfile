@@ -1,36 +1,30 @@
 pipeline {
-  environment {
-    registry = "pramopatil95/python-flask-app"
-    registryCredential = 'dockerhub_id'
-    dockerImage = ''
-  }
-  agent any
-  stages {
-    stage('Cloning our Git') {
-      steps {
-        git branch: 'main', url:'https://github.com/Pramod6395/Jenkins-Docker'
-      }
-    }
-    stage('Building our image') {
-      steps {
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+    agent any
+
+    stages {
+        stage('Clone Git Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Pramod6395/Jenkins-Docker.git'
+            }
         }
-      }
-    }
-    stage('Deploy our image') {
-      steps {
-        script {
-          docker.withRegistry('', registryCredential) {
-            dockerImage.push()
-          }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build("pramopatil95/python-flask-app:${env.BUILD_NUMBER}")
+                }
+            }
         }
-      }
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_id') {
+                        docker.image("pramopatil95/python-flask-app:${env.BUILD_NUMBER}").push()
+                    }
+                }
+            }
+        }
     }
-    stage('Cleaning up') {
-      steps {
-        sh "docker rmi $registry:$BUILD_NUMBER"
-      }
-    }
-  }
 }
+
