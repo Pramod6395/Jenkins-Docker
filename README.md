@@ -59,6 +59,9 @@ Before doing anything makesure **Docker** and **Docker Pipeline** Plugings are i
 5. Go to Dashboard>>Pipeline docker_image_pipeline>>Build Now.
 
    ![image](https://github.com/Pramod6395/Jenkins-Docker/assets/73251890/3be26d54-d600-42c2-ad7a-925034035dbb)
+   
+6. You can Check logs of steps in colsole output after clicking on Build Run number.
+   ![image](https://github.com/Pramod6395/Jenkins-Docker/assets/73251890/ede7ab73-6e3f-4f1e-9203-95d6bc590401)
 
-6. This will clone the git repo Build the image and push to DockerHub you can check on DockerHub.
+7. This will clone the git repo Build the image and push to DockerHub you can check on DockerHub.
   ![image](https://github.com/Pramod6395/Jenkins-Docker/assets/73251890/8881d6c8-5a5e-4988-937d-df0f157f4db0)
