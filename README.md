@@ -70,7 +70,7 @@ Before doing anything makesure **Docker** and **Docker Pipeline** Plugings are i
    ![image](https://github.com/Pramod6395/Jenkins-Docker/assets/73251890/022dfe44-f726-48a8-9ef2-bd7a91cde9a3)
    
 4. Save SSH credential to do ssh to another server to deploy the application.
-   ![image](https://github.com/Pramod6395/Jenkins-Docker/assets/73251890/7734dfdc-d067-4111-bebf-f2ae40f16a44)
+    ![image](https://github.com/Pramod6395/Jenkins-Docker/assets/73251890/0895f98d-84f7-43f3-a955-e54238abd01b)
 
 
 5. Create all the file which are given in this repo in Your Repo before performing Build.
