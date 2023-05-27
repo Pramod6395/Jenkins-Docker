@@ -28,7 +28,7 @@ pipeline {
 
         stage('SSH to Remote Server') {
             environment {
-                SSH_PASSWORD = credentials('ssh-password').password
+                SSH_PASSWORD = credentials('ami-pc').password
             }
             steps {
                 script {
