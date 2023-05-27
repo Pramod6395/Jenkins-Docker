@@ -43,6 +43,12 @@ docker exec -it [containerID] bash
 ```
 http://localhost:8080
 ```
+5. Get password using below command.
+```
+docker exec [containerID] cat /var/jenkins_home/secrets/initialAdminPassword
+```
+Put this password and install plugins [ it may take 2-32 try]
+
 #### Steps for building docker image and push to dockerhub.
 
 Before doing anything makesure **Docker** and **Docker Pipeline** Plugings are installed in Jenkings.
