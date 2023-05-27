@@ -47,7 +47,7 @@ http://localhost:8080
 ```
 docker exec [containerID] cat /var/jenkins_home/secrets/initialAdminPassword
 ```
-Put this password and install suggested plugins [ it may take 2-32 try]
+Put this password and install suggested plugins [ it may take 2-3 try]
 
 #### Steps for building docker image and push to dockerhub.
 
