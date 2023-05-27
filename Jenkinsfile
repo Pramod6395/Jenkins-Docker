@@ -34,7 +34,7 @@ pipeline {
                     ]) {
                         sh "sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'mkdir -p /home/ami/DockerTest'"
                         sh "sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'docker pull pramopatil95/python-flask-app:${env.BUILD_NUMBER}'"
-                        sh "sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'docker run -d -p 8080:80 --name my-container -v /home/ami/DockerTest:/app pramopatil95/python-flask-app:${env.BUILD_NUMBER}'"
+                        sh "sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'docker run -d -p 5000:5000   pramopatil95/python-flask-app:${env.BUILD_NUMBER}'"
                     }
                 }
             }
