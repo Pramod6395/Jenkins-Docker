@@ -68,14 +68,18 @@ Before doing anything makesure **Docker** and **Docker Pipeline** Plugings are i
    We can use "ID" which is "dockerhub_id" in our Jenkinsfile to refere to the dockerhub credential.
 
    ![image](https://github.com/Pramod6395/Jenkins-Docker/assets/73251890/022dfe44-f726-48a8-9ef2-bd7a91cde9a3)
+   
+4. Save SSH credential to do ssh to another server to deploy the application.
+   ![image](https://github.com/Pramod6395/Jenkins-Docker/assets/73251890/7734dfdc-d067-4111-bebf-f2ae40f16a44)
 
-4. Create all the file which are given in this repo in Your Repo before performing Build.
-5. Go to Dashboard>>Pipeline docker_image_pipeline>>Build Now.
+
+5. Create all the file which are given in this repo in Your Repo before performing Build.
+6. Go to Dashboard>>Pipeline docker_image_pipeline>>Build Now.
 
    ![image](https://github.com/Pramod6395/Jenkins-Docker/assets/73251890/3be26d54-d600-42c2-ad7a-925034035dbb)
    
-6. You can Check logs of steps in colsole output after clicking on Build Run number.
+7. You can Check logs of steps in colsole output after clicking on Build Run number.
    ![image](https://github.com/Pramod6395/Jenkins-Docker/assets/73251890/ede7ab73-6e3f-4f1e-9203-95d6bc590401)
 
-7. This will clone the git repo Build the image and push to DockerHub you can check on DockerHub.
+8. This will clone the git repo Build the image and push to DockerHub then ssh to another server and deploy container on it you can check on DockerHub.
   ![image](https://github.com/Pramod6395/Jenkins-Docker/assets/73251890/8881d6c8-5a5e-4988-937d-df0f157f4db0)
