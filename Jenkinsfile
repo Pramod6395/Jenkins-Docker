@@ -30,13 +30,13 @@ pipeline {
             steps {
                 script {
                     withCredentials([
-                        usernamePassword(credentialsId: 'ami_pc', passwordVariable: 'SSH_PASSWORD', usernameVariable: 'SSH_USERNAME')
+                        usernamePassword(credentialsId: 'us_server_id', passwordVariable: 'SSH_PASSWORD', usernameVariable: 'SSH_USERNAME')
                     ]) {
                         sh """
-                            sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'mkdir -p /home/ami/DockerTest'
-                            sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'docker stop my-container || true'
-                            sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'docker rm my-container || true'
-                            sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'docker pull pramopatil95/python-flask-app:${env.BUILD_NUMBER}'
+                            sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@71.184.122.66 'mkdir -p /home/cimcon/DockerTest'
+                            sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@71.184.122.66 'docker stop my-container || true'
+                            sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@71.184.122.66 'docker rm my-container || true'
+                            sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@71.184.122.66 'docker pull pramopatil95/python-flask-app:${env.BUILD_NUMBER}'
                             sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'docker run -d -p 5000:5000 --name my-container pramopatil95/python-flask-app:${env.BUILD_NUMBER}'
                         """
                     }
