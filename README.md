@@ -31,6 +31,10 @@ docker image build -t jenkins-docker .
 ```
 docker container run -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock jenkins-docker 
 ```
+  You can also enter in jenkins conatner haveing file at **/var/jenkins_home**.
+```
+docker exec -it [containerID] bash
+```
 4. Your Jenkins with using host docker daemon is ready and you can access it with below ip.
 ```
 http://localhost:8080
