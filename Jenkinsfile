@@ -19,8 +19,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_id') {
-                        docker.image("pramopatil95/python-flask-app:${env.BUILD_NUMBER}").push()
+                    docker.withRegistry('pramopatil95', 'dockerhub_id') {
+                        docker.image("python-flask-app:${env.BUILD_NUMBER}").push()
                     }
                 }
             }
