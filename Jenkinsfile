@@ -27,17 +27,18 @@ pipeline {
         }
 
         stage('SSH to Remote Server') {
+            environment {
+                SSH_PASSWORD = credentials('ssh-password').password
+            }
             steps {
                 script {
-                    withCredentials([
-                        usernamePassword(credentialsId: 'ami_pc', passwordVariable: 'SSH_PASSWORD', usernameVariable: 'SSH_USERNAME')
-                    ]) {
-                        sh "sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'mkdir -p /home/ami/DockerTest'"
-                        sh "sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'docker stop my-container || true'"
-                        sh "sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'docker rm my-container || true'"
-                        sh "sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'docker pull pramopatil95/python-flask-app:${env.BUILD_NUMBER}'"
-                        sh "sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'docker run -d -p 5000:5000 --name my-container pramopatil95/python-flask-app:${env.BUILD_NUMBER}'"
-                    }
+                    sh '''
+                        sshpass -p "${SSH_PASSWORD}" ssh ${SSH_USERNAME}@199.199.50.138 'mkdir -p /home/ami/DockerTest'
+                        sshpass -p "${SSH_PASSWORD}" ssh ${SSH_USERNAME}@199.199.50.138 'docker stop my-container || true'
+                        sshpass -p "${SSH_PASSWORD}" ssh ${SSH_USERNAME}@199.199.50.138 'docker rm my-container || true'
+                        sshpass -p "${SSH_PASSWORD}" ssh ${SSH_USERNAME}@199.199.50.138 'docker pull pramopatil95/python-flask-app:${env.BUILD_NUMBER}'
+                        sshpass -p "${SSH_PASSWORD}" ssh ${SSH_USERNAME}@199.199.50.138 'docker run -d -p 8080:80 --name my-container -v /home/ami/DockerTest:/app pramopatil95/python-flask-app:${env.BUILD_NUMBER}'
+                    '''
                 }
             }
         }
