@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([
-                        usernamePassword(credentialsId: 'ami_pc', passwordVariable: 'cimcon@123', usernameVariable: 'ami')
+                        usernamePassword(credentialsId: 'ami_pc', passwordVariable: 'SSH_PASSWORD', usernameVariable: 'SSH_USERNAME')
                     ]) {
                         sh "sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'mkdir -p /home/ami/DockerTest'"
                         sh "sshpass -p '${SSH_PASSWORD}' ssh ${SSH_USERNAME}@199.199.50.138 'docker stop my-container || true'"
