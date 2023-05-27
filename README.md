@@ -74,7 +74,7 @@ Before doing anything makesure **Docker** and **Docker Pipeline** Plugings are i
 
 
 5. Create all the file which are given in this repo in Your Repo before performing Build.
-   Make sure to do changes in JenkingFile according to your **github url** and **dockerHub username**.
+   Make sure to do changes in JenkingFile according to your **github url** and **dockerHub username** and production server IP.
    
   ```
   pipeline {
